@@ -438,7 +438,8 @@
                               <i class="mdi mdi-pencil text-info icon-option"></i>
                             </a>
                             <span>
-                              <i class="mdi mdi-trash-can-outline text-danger icon-option"></i>
+                              <i class="mdi mdi-trash-can-outline text-danger icon-option btn-delete" id="btn-delete_1"
+                                data-name="Edusin"></i>
                             </span>
                           </div>
                         </td>
@@ -457,7 +458,8 @@
                             </a>
                             <span>
                               <!-- Al pulsar , Swal para confirmar si quiere borrar-->
-                              <i class="mdi mdi-trash-can-outline text-danger icon-option"></i>
+                              <i class="mdi mdi-trash-can-outline text-danger icon-option btn-delete" id="btn-delete_2"
+                                data-name="Pilar"></i>
                             </span>
                           </div>
                         </td>
@@ -534,6 +536,43 @@
 
   <!-- App js -->
   <script src="../assets/js/app.min.js"></script>
+
+  <!-- Swal-->
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script>
+
+    $(function () {
+
+      $(document).on("click", ".btn-delete", function () {
+        let id = $(this).attr('id').replace('btn-delete_', '');
+        let name = $(this).attr('data-name');
+
+        Swal.fire({
+          title: "Eliminar usuario",
+          text: '¿Estás seguro de que quieres eliminar el usuario ' + name + '?',
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonText: "Sí",
+          cancelButtonText: `Cancelar`,
+          confirmButtonColor: "#FA5C7C",
+          cancelButtonColor: "#39AFD1",
+        }).then((result) => {
+          /* Read more about isConfirmed, isDenied below */
+          if (result.isConfirmed) {
+            // Eliminar...... Despues de eliminar:
+            Swal.fire("Usuario eliminado", "", "success");
+          } else {
+            // Eliminar
+          }
+        });
+
+      });
+
+    });
+
+  </script>
 
 </body>
 
