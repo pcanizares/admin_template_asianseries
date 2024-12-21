@@ -11,7 +11,25 @@ $(document).ready(function () {
 
   // $("#scroll-vertical-datatable").DataTable({ scrollY: "350px", scrollCollapse: !0, paging: !1, language: { paginate: { previous: "<i class='mdi mdi-chevron-left'>", next: "<i class='mdi mdi-chevron-right'>" } }, drawCallback: function () { $(".dataTables_paginate > .pagination").addClass("pagination-rounded") } }),
 
-  $("#scroll-horizontal-datatable").DataTable({ scrollX: !0, language: { paginate: { previous: "<i class='mdi mdi-chevron-left'>", next: "<i class='mdi mdi-chevron-right'>" } }, drawCallback: function () { $(".dataTables_paginate > .pagination").addClass("pagination-rounded") } });
+  $("#scroll-horizontal-datatable").DataTable({
+    scrollX: !0,
+    language: {
+      lengthMenu: "Mostrar _MENU_ items",
+      emptyTable: "Ho hay datos disponibles",
+      info: "Mostrando _START_ a _END_ de _TOTAL_ items",
+      infoEmpty: "Mostrando 0 a 0 de 0 entries",
+      infoFiltered: "(filtrado de _MAX_ items en total)",
+      loadingRecords: "Cargando...",
+      search: "Buscar:",
+      zeroRecords: "No hay registros coincidentes",
+      paginate: {
+        previous: "<i class='mdi mdi-chevron-left'>", next: "<i class='mdi mdi-chevron-right'>",
+      }
+    },
+    drawCallback: function () {
+      $(".dataTables_paginate > .pagination").addClass("pagination-rounded")
+    }
+  });
 
   // $("#complex-header-datatable").DataTable({ language: { paginate: { previous: "<i class='mdi mdi-chevron-left'>", next: "<i class='mdi mdi-chevron-right'>" } }, drawCallback: function () { $(".dataTables_paginate > .pagination").addClass("pagination-rounded") }, columnDefs: [{ visible: !1, targets: -1 }] }),
 
